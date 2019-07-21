@@ -22,7 +22,7 @@ namespace MyTestWebService.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=NWIND;user id=sa;password=dx;Persist Security Info=True");
+                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=NWIND;user id=###;password=###;Persist Security Info=True");
             }
         }
 
