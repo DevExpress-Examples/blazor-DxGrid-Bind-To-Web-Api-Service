@@ -1,4 +1,4 @@
-### DxDataGrid for Blazor - How to bind it to the Web API Service
+### Blazor Data Grid - How to bind it to the Web API Service
 
 There are two projects:
 1) MyTestWebService
