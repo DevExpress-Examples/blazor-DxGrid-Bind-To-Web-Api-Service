@@ -1,3 +1,14 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Index.razor](./CS/DataGridWithWebApiService/DataGridWithWebApiService/Pages/Index.razor)
+* [Model.cs](./CS/DataGridWithWebApiService/DataGridWithWebApiService/Data/Model.cs)
+* [WebServicePath.cs](./CS/DataGridWithWebApiService/DataGridWithWebApiService/Data/WebServicePath.cs)
+* [CategoriesController.cs](./CS/MyTestWebService/MyTestWebService/Controllers/CategoriesController.cs)
+* [NWINDContext.cs](./CS/MyTestWebService/MyTestWebService/Models/NWINDContext.cs)
+* [Categories.cs](./CS/MyTestWebService/MyTestWebService/Models/Categories.cs)
+<!-- default file list end -->
+
 ### Blazor Data Grid - How to bind it to the Web API Service
 
 There are two projects:
