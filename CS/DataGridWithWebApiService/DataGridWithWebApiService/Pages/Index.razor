@@ -15,7 +15,7 @@ else
                 RowUpdating=@((updatingDataItem, newValues) => OnRowUpdating(updatingDataItem, newValues))
                 RowInserting=@((newValues) => OnRowInserting(newValues))>
         <DxDataGridCommandColumn Width="150px"></DxDataGridCommandColumn>
-        <DxDataGridColumn Field=@nameof(Categories.CategoryId)></DxDataGridColumn>
+        <DxDataGridColumn Field=@nameof(Categories.CategoryId) EditorVisible="DefaultBoolean.False"></DxDataGridColumn>
         <DxDataGridColumn Field=@nameof(Categories.CategoryName)></DxDataGridColumn>
         <DxDataGridColumn Field=@nameof(Categories.Description)></DxDataGridColumn>
     </DxDataGrid>
@@ -23,7 +23,7 @@ else
 @functions {
     List<Categories> categories;
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         categories = await Http.GetJsonAsync<List<Categories>>(wsp.Path + "categories");
     }
@@ -31,14 +31,14 @@ else
     {
         await Http.DeleteAsync(wsp.Path + "categories/" + dataItem.CategoryId);
         categories = await Http.GetJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await Invoke(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
     async void OnRowUpdating(Categories dataItem, Dictionary<string, object> newValues)
     {
         SetNewValues(dataItem, newValues);
         await Http.PutJsonAsync(wsp.Path + "categories/" + dataItem.CategoryId, dataItem);
         categories = await Http.GetJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await Invoke(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
     async void OnRowInserting(Dictionary<string, object> newValues)
     {
@@ -46,7 +46,7 @@ else
         SetNewValues(newCategory, newValues);
         await Http.PostJsonAsync<Categories>(wsp.Path + "categories/", newCategory);
         categories = await Http.GetJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await Invoke(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
     private void SetNewValues(Categories dataItem, Dictionary<string, object> newValues)
     {

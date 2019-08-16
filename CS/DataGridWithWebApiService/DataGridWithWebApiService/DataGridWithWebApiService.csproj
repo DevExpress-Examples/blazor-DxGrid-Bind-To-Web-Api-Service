@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Blazor" Version="0.0.12-ctp" />
+    <PackageReference Include="DevExpress.Blazor" Version="0.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.0.0-preview8.19405.7" />
   </ItemGroup>
 
 </Project>
