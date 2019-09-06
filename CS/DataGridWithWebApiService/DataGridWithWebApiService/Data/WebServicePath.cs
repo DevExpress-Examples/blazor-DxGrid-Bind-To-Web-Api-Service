@@ -2,6 +2,6 @@
 {
     internal class WebServicePath
     {
-        public string Path { get { return "https://localhost:44378/api/"; } }
+        public string Path { get { return "http://localhost:51160/api/"; } }
     }
 }
