@@ -20,7 +20,7 @@ A sample project implementing a web API with ASP.NET Core.
 
 ORM is EntityFrameworkCore.
 
-The data base is "Northwind", and its backup is in  [this folder](./CS/MyTestWebService/MyTestWebService/DBBackup).
+The data base is "Northwind".
 
 Restore the backup on your SQL server and change the connection string in [this file](./CS/MyTestWebService/MyTestWebService/Models/NWINDContext.cs) correspondingly (see the *OnConfiguring* method). 
 
