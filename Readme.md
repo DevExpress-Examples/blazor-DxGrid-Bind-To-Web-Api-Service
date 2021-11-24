@@ -3,9 +3,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# DataGrid for Blazor - How to bind the DataGrid to the Web API Service
+# DataGrid for Blazor - How to bind the Web API Service
 
-The Data Grid can connect to external services to obtain data.
+You can use the HttpClient to obtain data from the remote service. Save data to a collection and bind the Data Grid to it.
 
 ![Data Grid with Data from External Service](images/application-page.png)
 
