@@ -6,12 +6,10 @@
 @inject WebServicePath wsp
 @using DataGridWithWebApiService.Data
 
-@if (categories == null)
-{
+@if (categories == null) {
     <h1>Loading...</h1>
 }
-else
-{
+else {
     <DxDataGrid Data=@categories ShowFilterRow="false" ShowPager="false"
                 RowRemoving=@((dataItem) => OnRowRemoving(dataItem))
                 RowUpdating=@((updatingDataItem, newValues) => OnRowUpdating(updatingDataItem, newValues))
