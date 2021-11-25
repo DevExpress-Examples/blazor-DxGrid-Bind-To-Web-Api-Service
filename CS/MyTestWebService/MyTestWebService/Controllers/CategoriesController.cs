@@ -6,28 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using MyTestWebService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyTestWebService.Controllers
-{
+namespace MyTestWebService.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
-    {
+    public class CategoriesController : ControllerBase {
         private readonly NWINDContext _context;
-
-        public CategoriesController(NWINDContext context)
-        {
+        public CategoriesController(NWINDContext context) {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Categories>>> Get()
-        {
+        public async Task<ActionResult<IEnumerable<Categories>>> Get() {
             return await _context.Categories.ToListAsync();
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Categories>> Get(int id)
-        {
+        public async Task<ActionResult<Categories>> Get(int id) {
             var todoItem = await _context.Categories.FindAsync(id);
             if (todoItem == null) {
                 return NotFound();
@@ -37,8 +31,7 @@ namespace MyTestWebService.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public async Task<ActionResult<Categories>> Post(Categories item)
-        {
+        public async Task<ActionResult<Categories>> Post(Categories item) {
             _context.Categories.Add(item);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = item.CategoryId }, item);
@@ -46,8 +39,7 @@ namespace MyTestWebService.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Categories item)
-        {
+        public async Task<IActionResult> Put(int id, Categories item) {
             if (id != item.CategoryId) {
                 return BadRequest();
             }
@@ -58,8 +50,7 @@ namespace MyTestWebService.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
+        public async Task<IActionResult> Delete(int id) {
             var todoItem = await _context.Categories.FindAsync(id);
             if (todoItem == null) {
                 return NotFound();
