@@ -30,9 +30,9 @@ The example solution contains two projects:
 
 ## Documentation
 
-[Data Grid: Data Binding](http://docs.devexpress.devx/Blazor/DevExpress.Blazor.DxDataGrid-1.Data)
+* [Data Grid: Data Binding](http://docs.devexpress.devx/Blazor/DevExpress.Blazor.DxDataGrid-1.Data)
 
-[Data Grid: Bind to Data with EF Core](https://docs.devexpress.com/Blazor/403167/common-concepts/bind-data-grid-to-data-from-entity-framework-core)
+* [Data Grid: Bind to Data with EF Core](https://docs.devexpress.com/Blazor/403167/common-concepts/bind-data-grid-to-data-from-entity-framework-core)
 
 ## More Examples
 
