@@ -12,7 +12,9 @@ You can use the HttpClient to obtain data from the remote service. Save data to 
 The example solution contains two projects:
 
 * **MyTestWebService**: This sample project implements a Web API with ASP.NET Core. Restore the backup on your SQL server and change the connection string in [NWINDContext.cs file](./CS/MyTestWebService/MyTestWebService/Models/NWINDContext.cs#L21) (see the *OnConfiguring* method). 
+
 * **DataGridWithWebApiService**: This project uses the connection to the **MyTestWebService** web service. Deploy the **MyTestWebService** project, start it, and specify its address in the `Path` [variable](./CS/DataGridWithWebApiService/DataGridWithWebApiService/Data/WebServicePath.cs#L3):
+    
     ![Localhost Port](images/localhost-port.png)
 
 <!-- default file list -->
