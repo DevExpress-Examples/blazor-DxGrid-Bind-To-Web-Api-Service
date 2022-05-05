@@ -6,6 +6,8 @@
 
 # DataGrid for Blazor - How to bind the Web API Service
 
+The Data Grid was moved to maintenance support mode. No new features/capabilities will be added to this component. We recommend that you [migrate](https://docs.devexpress.com/Blazor/403162/grid/migrate-from-data-grid-to-grid) to the [Grid](https://docs.devexpress.com/Blazor/403143/grid) component. 
+
 You can use the HttpClient to obtain data from the remote service. Save data to a collection and bind the Data Grid to it.
 
 ![Data Grid with Data from External Service](images/application-page.png)
