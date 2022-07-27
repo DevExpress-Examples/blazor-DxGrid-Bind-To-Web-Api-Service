@@ -18,7 +18,7 @@ namespace MyTestWebService.Models
         public virtual DbSet<Products> Products { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             if (!optionsBuilder.IsConfigured) {
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=NWIND;user id=XXX;password=XXX;Persist Security Info=True");
+                optionsBuilder.UseSqlServer("Data Source=(Local);Initial Catalog=NWIND;user id=XXX;password=XXX;Persist Security Info=True");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

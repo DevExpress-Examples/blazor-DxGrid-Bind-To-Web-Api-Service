@@ -6,54 +6,59 @@
 @inject WebServicePath wsp
 @using DataGridWithWebApiService.Data
 
-@if (categories == null) {
-    <h1>Loading...</h1>
-}
-else {
-    <DxDataGrid Data=@categories ShowFilterRow="false" ShowPager="false"
-                RowRemoving=@((dataItem) => OnRowRemoving(dataItem))
-                RowUpdating=@((updatingDataItem, newValues) => OnRowUpdating(updatingDataItem, newValues))
-                RowInserting=@((newValues) => OnRowInserting(newValues))>
-        <DxDataGridCommandColumn Width="150px"></DxDataGridCommandColumn>
-        <DxDataGridColumn Field=@nameof(Categories.CategoryId) EditorVisible="false"></DxDataGridColumn>
-        <DxDataGridColumn Field=@nameof(Categories.CategoryName)></DxDataGridColumn>
-        <DxDataGridColumn Field=@nameof(Categories.Description)></DxDataGridColumn>
-    </DxDataGrid>
-}
+<DxGrid Data=@categories 
+        ShowFilterRow="false" 
+        PagerVisible="false" 
+        EditModelSaving="OnEditModelSaving"
+        DataItemDeleting="OnDataItemDeleting">
+    <Columns>
+        <DxGridCommandColumn Width="150px" />
+        <DxGridDataColumn FieldName=@nameof(Categories.CategoryId) />
+        <DxGridDataColumn FieldName=@nameof(Categories.CategoryName) />
+        <DxGridDataColumn FieldName=@nameof(Categories.Description) />
+    </Columns>
+    <EditFormTemplate Context="EditFormContext">
+        @{
+            var category = (Categories)EditFormContext.EditModel;
+        }
+        <DxFormLayout>
+            <DxFormLayoutItem Caption="Category Name">
+                <DxTextBox @bind-Text=category.CategoryName />
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Description">
+                <DxTextBox @bind-Text=category.Description />
+            </DxFormLayoutItem>
+        </DxFormLayout>
+    </EditFormTemplate>
+</DxGrid>
+
+
 @code {
-    List<Categories> categories;
+    List<Categories>? categories;
+    async Task OnEditModelSaving(GridEditModelSavingEventArgs e) {
+        if(e.IsNew) {
+            Categories newCategory = new Categories();
+            SetNewValues(newCategory, (Categories)e.EditModel);
+            await Http.PostAsJsonAsync<Categories>(wsp.Path + "categories/", newCategory);
+            categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
+        }
+        else {
+            var dataItem = (Categories)e.DataItem;
+            SetNewValues(dataItem, (Categories)e.EditModel);
+            await Http.PutAsJsonAsync(wsp.Path + "categories/" + dataItem.CategoryId, dataItem);
+            categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
+        }
+    }
     protected override async Task OnInitializedAsync() {
         categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
     }
-    async void OnRowRemoving(Categories dataItem) {
-        await Http.DeleteAsync(wsp.Path + "categories/" + dataItem.CategoryId);
+    async Task OnDataItemDeleting(GridDataItemDeletingEventArgs e) {
+        await Http.DeleteAsync(wsp.Path + "categories/" + ((Categories)e.DataItem).CategoryId);
         categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await InvokeAsync(StateHasChanged);
     }
-    async void OnRowUpdating(Categories dataItem, Dictionary<string, object> newValues) {
-        SetNewValues(dataItem, newValues);
-        await Http.PutAsJsonAsync(wsp.Path + "categories/" + dataItem.CategoryId, dataItem);
-        categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await InvokeAsync(StateHasChanged);
-    }
-    async void OnRowInserting(Dictionary<string, object> newValues) {
-        Categories newCategory = new Categories();
-        SetNewValues(newCategory, newValues);
-        await Http.PostAsJsonAsync<Categories>(wsp.Path + "categories/", newCategory);
-        categories = await Http.GetFromJsonAsync<List<Categories>>(wsp.Path + "categories");
-        await InvokeAsync(StateHasChanged);
-    }
-    private void SetNewValues(Categories dataItem, Dictionary<string, object> newValues) {
-        foreach (var field in newValues.Keys) {
-            switch (field) {
-                case nameof(Categories.CategoryName):
-                    dataItem.CategoryName = (string)newValues[field];
-                    break;
-                case nameof(Categories.Description):
-                    dataItem.Description = (string)newValues[field];
-                    break;
-            }
-        }
+    private void SetNewValues(Categories dataItem, Categories newValues) {
+        dataItem.CategoryName = newValues.CategoryName;
+        dataItem.Description = newValues.Description;
     }
 }
 
