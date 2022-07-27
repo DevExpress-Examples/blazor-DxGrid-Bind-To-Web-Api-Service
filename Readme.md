@@ -4,11 +4,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# DataGrid for Blazor - How to bind the Web API Service
+# Grid for Blazor - How to bind the Web API Service
 
-The Data Grid was moved to maintenance support mode. No new features/capabilities will be added to this component. We recommend that you [migrate](https://docs.devexpress.com/Blazor/403162/grid/migrate-from-data-grid-to-grid) to the [Grid](https://docs.devexpress.com/Blazor/403143/grid) component. 
-
-You can use the HttpClient to obtain data from the remote service. Save data to a collection and bind the Data Grid to it.
+You can use the HttpClient to obtain data from the remote service. Save data to a collection and bind the Grid to it.
 
 ![Data Grid with Data from External Service](images/application-page.png)
 
@@ -33,9 +31,5 @@ The example solution contains two projects:
 
 ## Documentation
 
-* [Data Grid: Data Binding](http://docs.devexpress.devx/Blazor/DevExpress.Blazor.DxDataGrid-1.Data)
-* [Data Grid: Bind to Data with EF Core](https://docs.devexpress.com/Blazor/403167/common-concepts/bind-data-grid-to-data-from-entity-framework-core)
-
-## More Examples
-
-[Data Grid - How to use DevExpress Reporting tools to implement export in a WASM application ](https://github.com/DevExpress-Examples/blazor-webassembly-dxdatagrid-export)
+* [Grid: Data Binding](https://docs.devexpress.com/Blazor/403737/grid/bind-to-data)
+* [Bind Components to Data with Entity Framework Core](https://docs.devexpress.com/Blazor/403167/common-concepts/bind-data-grid-to-data-from-entity-framework-core)
