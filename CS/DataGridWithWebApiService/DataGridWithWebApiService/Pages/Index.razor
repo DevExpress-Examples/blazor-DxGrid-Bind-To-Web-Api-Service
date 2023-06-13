@@ -9,26 +9,14 @@
 <DxGrid Data=@categories 
         PagerVisible="false" 
         EditModelSaving="OnEditModelSaving"
-        DataItemDeleting="OnDataItemDeleting">
+        DataItemDeleting="OnDataItemDeleting"
+        EditMode="GridEditMode.EditRow">
     <Columns>
         <DxGridCommandColumn Width="150px" />
         <DxGridDataColumn FieldName=@nameof(Categories.CategoryId) />
         <DxGridDataColumn FieldName=@nameof(Categories.CategoryName) />
         <DxGridDataColumn FieldName=@nameof(Categories.Description) />
     </Columns>
-    <EditFormTemplate Context="EditFormContext">
-        @{
-            var category = (Categories)EditFormContext.EditModel;
-        }
-        <DxFormLayout>
-            <DxFormLayoutItem Caption="Category Name">
-                <DxTextBox @bind-Text=category.CategoryName />
-            </DxFormLayoutItem>
-            <DxFormLayoutItem Caption="Description">
-                <DxTextBox @bind-Text=category.Description />
-            </DxFormLayoutItem>
-        </DxFormLayout>
-    </EditFormTemplate>
 </DxGrid>
 
 
