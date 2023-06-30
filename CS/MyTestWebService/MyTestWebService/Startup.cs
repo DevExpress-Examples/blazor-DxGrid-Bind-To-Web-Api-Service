@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MyTestWebService.Models;
+using System.IO;
 
 namespace MyTestWebService
 {
@@ -27,7 +28,11 @@ namespace MyTestWebService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<NWINDContext>();
+            services.AddDbContextFactory<NWINDContext>((sp, options) => {
+                var env = sp.GetRequiredService<IWebHostEnvironment>();
+                var dbPath = Path.Combine(env.ContentRootPath, "Northwind.db");
+                options.UseSqlite("Data Source=" + dbPath);
+            });
             services.AddControllers();
         }
 
