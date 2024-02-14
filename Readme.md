@@ -33,3 +33,4 @@ The example solution contains two projects:
 
 * [Grid: Data Binding](https://docs.devexpress.com/Blazor/403737/grid/bind-to-data)
 * [Bind Components to Data with Entity Framework Core](https://docs.devexpress.com/Blazor/403167/common-concepts/bind-data-grid-to-data-from-entity-framework-core)
+* [Tutorial: Create a web API with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.2&tabs=visual-studio)
