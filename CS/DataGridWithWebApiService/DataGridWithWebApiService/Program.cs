@@ -23,10 +23,6 @@ if (!builder.Services.Any(x => x.ServiceType == typeof(HttpClient))) {
     });
 }
 builder.Services.AddScoped<WebServicePath>();
-
-builder.Services.Configure<DevExpress.Blazor.Configuration.GlobalOptions>(options => {
-    options.BootstrapVersion = DevExpress.Blazor.BootstrapVersion.v5;
-});
 builder.WebHost.UseWebRoot("wwwroot");
 builder.WebHost.UseStaticWebAssets();
 
@@ -48,5 +44,6 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
 
 app.Run();
