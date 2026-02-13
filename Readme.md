@@ -41,7 +41,7 @@ The example solution contains two projects:
 
 [Data Grid - How to use DevExpress Reporting tools to implement export in a WASM application ](https://github.com/DevExpress-Examples/blazor-webassembly-dxdatagrid-export)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-bind-to-web-api-service&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-bind-to-web-api-service&~~~was_helpful=no)
 
